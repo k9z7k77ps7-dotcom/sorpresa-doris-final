@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe4ed">
+<title>Para Doris, mi amor ❤️</title>
+
+<style>
+:root {
+  --pink: #d94f80;
+  --dark: #77304f;
+  --light: #fff4f8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--dark);
+  font-family: Georgia, serif;
+  text-align: center;
+  background: linear-gradient(135deg,#fff5f9,#ffdfeb,#fff9f4);
+  overflow-x: hidden;
+}
+button {
+  background: var(--pink);
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 13px 21px;
+  margin: 7px;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 5px 16px #a83d6125;
+}
+button:hover { background: #b83260; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+header {
+  min-height: 90vh;
+  padding: 45px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: clamp(36px,7vw,60px);
+  color: #c34470;
+}
+h2 { color: #c34470; }
+p { line-height: 1.8; }
+.intro { max-width: 650px; font-size: 19px; }
+.heart { font-size: 48px; animation: beat 1.4s infinite; }
+section { max-width: 1000px; margin: auto; padding: 35px 18px; }
+.card {
+  background: #ffffffdf;
+  border: 1px solid #f4bfd2;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 20px auto;
+  box-shadow: 0 8px 25px #a83d6115;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 18px;
+}
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border: 5px solid white;
+  border-radius: 20px;
+}
+.caption { font-style: italic; }
+.gifts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 15px;
+}
+.gift {
+  padding: 20px;
+  border-radius: 22px;
+  background: #fffafd;
+  border: 1px solid #f4bfd2;
+}
+.gift-icon { font-size: 54px; }
+.secret {
+  display: none;
+  background: #fff0f6;
+  border-radius: 15px;
+  padding: 15px;
+  line-height: 1.8;
+}
+#letter { display: none; text-align: left; }
+#letter p { line-height: 1.9; }
+.floats {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+.flower {
+  position: absolute;
+  bottom: -60px;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+.petal {
+  position: absolute;
+  top: -40px;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+footer { padding: 45px 18px 60px; }
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15%,80% { opacity: .8; }
+  100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+@keyframes fall {
+  0% { transform: translateY(-5vh) rotate(0); opacity: 0; }
+  15%,80% { opacity: .7; }
+  100% { transform: translate(40px,110vh) rotate(360deg); opacity: 0; }
+}
+@media(max-width:550px) {
+  .gallery img { height: 260px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="floats" aria-hidden="true">
+  <span class="flower" style="left:5%;font-size:30px;animation-duration:18s">🌸</span>
+  <span class="flower" style="left:25%;font-size:27px;animation-duration:20s;animation-delay:4s">🌹</span>
+  <span class="flower" style="left:48%;font-size:30px;animation-duration:17s;animation-delay:2s">🌷</span>
+  <span class="flower" style="left:73%;font-size:32px;animation-duration:21s;animation-delay:6s">🌸</span>
+  <span class="flower" style="left:90%;font-size:28px;animation-duration:18s;animation-delay:3s">🌺</span>
+  <span class="petal" style="left:15%;animation-duration:14s">🌸</span>
+  <span class="petal" style="left:38%;animation-duration:16s;animation-delay:4s">💗</span>
+  <span class="petal" style="left:65%;animation-duration:13s;animation-delay:2s">🌷</span>
+  <span class="petal" style="left:85%;animation-duration:15s;animation-delay:6s">🌸</span>
+</div>
+
+<header>
+  <div class="heart">❤️</div>
+  <p class="intro">Tengo una sorpresa preparada especialmente para ti...</p>
+  <h1>Para Doris, mi amor bonito 🌹</h1>
+  <p class="intro">
+    Mi nena, mi amor y mi persona especial.
+    Esta pequeña página es para ti, con todo mi cariño. 💗
+  </p>
+  <button onclick="startSurprise()">Comenzar mi sorpresa 💌</button>
+  <p id="greeting" aria-live="polite"></p>
+  <button onclick="goTo('memories')">Nuestros recuerdos 📸</button>
+
+  <div class="card">
+    <h2>Nuestra canción 🎶</h2>
+    <p>Un detalle musical para acompañar este momento.</p>
+    <button id="musicButton" onclick="toggleMusic()">▶ Escuchar Tattoo ❤️</button>
+    <audio id="music" loop preload="none">
+      <source src="audio/musica.mp3" type="audio/mpeg">
+    </audio>
+    <p id="musicStatus" aria-live="polite">Pulsa para escuchar nuestra canción.</p>
+    <p>
+      Si el archivo no está disponible, puedes
+      <a href="https://open.spotify.com/search/Loreen%20Tattoo"
+         target="_blank" rel="noopener noreferrer">buscar Tattoo de Loreen en Spotify</a>.
+    </p>
+  </div>
+</header>
+
+<section>
+  <div class="card">
+    <div class="heart">💗</div>
+    <h2>Un pedacito de nuestra historia</h2>
+    <p>
+      Doris, quiero guardar con cariño los recuerdos que compartimos
+      y seguir creando momentos bonitos contigo. Gracias por formar
+      parte de mi historia. ❤️
+    </p>
+  </div>
+</section>
+
+<section id="memories">
+  <h2>Nuestros recuerdos, mi amor 📸</h2>
+  <p>Cada foto guarda un momento especial. 🌸</p>
+  <div class="gallery">
+    <div>
+      <img src="fotos/foto1.jpg" alt="Nuestro recuerdo uno">
+      <p class="caption">Tú y yo, mi lugar bonito. 💗</p>
+    </div>
+    <div>
+      <img src="fotos/foto2.jpg" alt="Nuestro recuerdo dos">
+      <p class="caption">Mi sonrisa favorita eres tú. ❤️</p>
+    </div>
+    <div>
+      <img src="fotos/foto3.jpg" alt="Nuestro recuerdo tres">
+      <p class="caption">Un momento para recordar. 🥹</p>
+    </div>
+    <div>
+      <img src="fotos/foto4.jpg" alt="Nuestro recuerdo cuatro">
+      <p class="caption">Siempre hay algo bonito que recordar. 🎀</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Tres regalitos para ti 🎁</h2>
+  <p>Abre cada regalo para descubrir una nueva sorpresa.</p>
+  <div class="gifts">
+    <div class="gift">
+      <div class="gift-icon">🎁</div>
+      <h3>Un mensajito</h3>
+      <button onclick="openGift(1)">Abrir regalo 💗</button>
+      <div class="secret" id="gift1">
+        Doris, eres alguien muy especial para mí.
+        Espero que esta sorpresa te saque una sonrisa. ❤️
+      </div>
+    </div>
+
+    <div class="gift">
+      <div class="gift-icon">💌</div>
+      <h3>Un deseo bonito</h3>
+      <button id="giftButton2" onclick="openGift(2)" disabled>
+        Primero abre el regalo 1 🔒
+      </button>
+      <div class="secret" id="gift2">
+        Deseo que sigamos compartiendo risas, aprendiendo juntos
+        y creando recuerdos llenos de cariño. 🫶
+      </div>
+    </div>
+
+    <div class="gift">
+      <div class="gift-icon">🌹</div>
+      <h3>La sorpresa final</h3>
+      <button id="giftButton3" onclick="openGift(3)" disabled>
+        Primero abre el regalo 2 🔒
+      </button>
+      <div class="secret" id="gift3">
+        ¡Sorpresa, mi amor! ❤️
+        Esta página es un detalle hecho pensando en ti.
+        Gracias por formar parte de mi vida. 💗
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Una cartita para ti 💌</h2>
+    <p>Hay unas palabras que quiero compartir contigo.</p>
+    <button onclick="openLetter()">Abrir mi cartita ❤️</button>
+
+    <article id="letter">
+      <h2>Para mi Doris hermosa 🌹</h2>
+      <p>
+        Mi amor, preparé esta página pensando en ti y en la ilusión
+        de regalarte algo diferente. Quería reunir fotos, una canción
+        y unas palabras que vienen de mi corazón. ❤️
+      </p>
+      <p>
+        Gracias por los momentos que compartimos, por las risas y
+        por esas pequeñas cosas que hacen especiales nuestros días.
+        Quiero que podamos escucharnos, comprendernos y tratarnos
+        siempre con cariño y respeto.
+      </p>
+      <p>
+        Me hace ilusión seguir creando recuerdos bonitos contigo,
+        tomar más fotos y tener historias que algún día podamos
+        recordar con una sonrisa. 🥹💗
+      </p>
+      <p>
+        Espero que esta sorpresa te guste y te recuerde lo especial
+        que eres para mí. No tiene que ser un regalo enorme para
+        llevar mucho cariño dentro.
+      </p>
+      <p>
+        Gracias por ser tú, mi amor bonito.
+        Te mando un abrazo enorme. ❤️🌸
+      </p>
+      <p style="text-align:center;font-weight:bold">
+        Con cariño, Luis ❤️<br>
+        Para Doris, mi amor 💗
+      </p>
+      <div style="text-align:center">
+        <button onclick="closeLetter()">Cerrar cartita</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="heart">💗</div>
+  <h2>Para ti, Doris 🌹</h2>
+  <p>Con todo mi cariño, de Luis para mi amor bonito. ❤️</p>
+  <p>Una pequeña sorpresa hecha especialmente para ti. ✨</p>
+</footer>
+
+<script>
+const messages = [
+  "Doris, espero que esta sorpresa te saque una sonrisa. ❤️",
+  "Mi amor bonito, cada recuerdo tiene un lugar especial. 🌸",
+  "Gracias por formar parte de mi historia. 💗",
+  "Te mando un abrazo lleno de cariño. 🫶"
+];
+
+let messageIndex = 0;
+let lastGift = 0;
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function startSurprise() {
+  const greeting = document.getElementById("greeting");
+  greeting.textContent = messages[messageIndex % messages.length];
+  messageIndex++;
+  goTo("memories");
+}
+
+function openGift(number) {
+  if (number > lastGift + 1) return;
+
+  document.getElementById("gift" + number).style.display = "block";
+  lastGift = Math.max(lastGift, number);
+
+  if (number < 3) {
+    const nextButton = document.getElementById("giftButton" + (number + 1));
+    nextButton.disabled = false;
+    nextButton.textContent = "Abrir regalo 💝";
+  }
+}
+
+async function toggleMusic() {
+  const audio = document.getElementById("music");
+  const button = document.getElementById("musicButton");
+  const status = document.getElementById("musicStatus");
+
+  if (audio.paused) {
+    try {
+      await audio.play();
+      button.textContent = "⏸ Pausar canción";
+      status.textContent = "Reproduciendo nuestra canción. ❤️";
+    } catch (error) {
+      status.textContent =
+        "No se pudo reproducir. Comprueba que audio/musica.mp3 exista y sea válido.";
+    }
+  } else {
+    audio.pause();
+    button.textContent = "▶ Escuchar Tattoo ❤️";
+    status.textContent = "Canción pausada. 💗";
+  }
+}
+
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+  document.getElementById("letter").scrollIntoView({behavior:"smooth"});
+}
+
+function closeLetter() {
+  document.getElementById("letter").style.display = "none";
+}
+</script>
+</body>
+</html>
